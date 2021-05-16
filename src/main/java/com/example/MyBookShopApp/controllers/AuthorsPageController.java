@@ -20,7 +20,7 @@ public class AuthorsPageController {
 
     @GetMapping("/authors")
     public String authorPage(Model model) {
-        model.addAttribute("bAuthors", authorsService.getAuthorDataB());
+        model.addAttribute("bAuthors", authorsService.getAuthorData("Б"));
         return "authors/index";
     }
 }

@@ -19,14 +19,14 @@ public class AuthorsService {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public List<Author> getAuthorDataB() {
-        List<Author> authors = jdbcTemplate.query("select * from authors where category = 'Б'", (ResultSet rs, int rowNum) -> {
+    public List<Author> getAuthorData(String category) {
+        List<Author> authors = jdbcTemplate.query("select * from authors where category = ?", (ResultSet rs, int rowNum) -> {
             Author author = new Author();
             author.setId(rs.getInt("id"));
             author.setName(rs.getString("authorName"));
             author.setCategory(rs.getString("category"));
             return author;
-        });
+        }, category);
         return new ArrayList<>(authors);
     }
 }
