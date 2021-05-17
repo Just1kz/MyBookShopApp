@@ -1,6 +1,15 @@
 package com.example.MyBookShopApp.dto;
 
-public class Book {
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+import java.util.Objects;
+
+@Setter
+@Getter
+@ToString
+public class Book implements Comparable<Book>{
 
     private int id;
     private String author;
@@ -8,63 +17,27 @@ public class Book {
     private String priceOld;
     private String price;
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getPriceOld() {
-        return priceOld;
-    }
-
-    public void setPriceOld(String priceOld) {
-        this.priceOld = priceOld;
-    }
-
-    public String getPrice() {
-        return price;
-    }
-
-    public void setPrice(String price) {
-        this.price = price;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Book book = (Book) o;
+        return Objects.equals(author, book.author)
+                && Objects.equals(title, book.title)
+                && Objects.equals(price, book.price);
     }
 
     @Override
-    public String toString() {
-        return "Book{"
-                + "id="
-                + id
-                + ", author='"
-                + author
-                + '\''
-                + ", title='"
-                + title
-                + '\''
-                + ", priceOld='"
-                + priceOld
-                + '\''
-                + ", price='"
-                + price
-                + '\''
-                + '}';
+    public int hashCode() {
+        return Objects.hash(author, title, price);
+    }
+
+    @Override
+    public int compareTo(Book o) {
+        return title.compareTo(o.title);
     }
 }
