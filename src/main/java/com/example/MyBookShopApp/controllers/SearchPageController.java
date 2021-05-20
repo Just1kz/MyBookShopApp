@@ -25,7 +25,7 @@ public class SearchPageController {
     }
 
     @PostMapping("/searching")
-    public String searchBook(@RequestParam("query") String rsl, Model model) {
+    public String searchBook(@RequestParam(value = "query") String rsl, Model model) {
         if (bookService.findBookByTitle(rsl).size() >= 1) {
             model.addAttribute("searchByTitle", bookService.findBookByTitle(rsl));
         }
