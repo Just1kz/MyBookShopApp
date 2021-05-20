@@ -27,6 +27,6 @@ insert into books (author, title, priceOld, price) values (1, 'Java HARDCODE', '
 -- select * from books
 -- left join authors a on a.id = books.author;
 -- select * from authors where category = 'Б';
-SELECT * FROM books left join authors a on a.id = books.author where books.title like '%' || 'real' || '%';
-SELECT * FROM books left join authors a on a.id = books.author where lastname like '%' || 'han' || '%';
-SELECT * FROM books left join authors a on a.id = books.author;
+-- SELECT * FROM books left join authors a on a.id = books.author where books.title like '%' || 'real' || '%';
+-- SELECT * FROM books left join authors a on a.id = books.author where lastname like '%' || 'han' || '%';
+-- SELECT * FROM books left join authors a on a.id = books.author;
