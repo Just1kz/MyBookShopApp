@@ -27,13 +27,13 @@ public class AuthorsService {
         List<Author> authors = jdbcTemplate.query("select * from authors", (ResultSet rs, int rowNum) -> {
             Author author = new Author();
             author.setId(rs.getInt("id"));
-            author.setFirstName(rs.getString("firstName"));
-            author.setLastName(rs.getString("lastName"));
+            author.setFirst_name(rs.getString("first_name"));
+            author.setLast_name(rs.getString("last_name"));
             return author;
         });
         return authors.stream()
-                .sorted(Comparator.comparing(Author::getLastName))
+                .sorted(Comparator.comparing(Author::getLast_name))
                 .collect(Collectors.groupingBy(
-                (Author a) -> a.getLastName().substring(0, 1)));
+                (Author a) -> a.getLast_name().substring(0, 1)));
     }
 }

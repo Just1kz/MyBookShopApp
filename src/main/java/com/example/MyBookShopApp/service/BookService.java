@@ -20,12 +20,12 @@ public class BookService {
     }
 
     public List<Book> getBooksData() {
-        List<Book> books = jdbcTemplate.query("SELECT * FROM books left join authors a on a.id = books.author", (ResultSet rs, int rowNum) -> {
+        List<Book> books = jdbcTemplate.query("SELECT * FROM books left join authors a on a.id = books.author_id", (ResultSet rs, int rowNum) -> {
             Book book = new Book();
             book.setId(rs.getInt("id"));
-            book.setAuthor(rs.getString("lastName") + " " + rs.getString("firstName"));
+            book.setAuthor(rs.getString("last_name") + " " + rs.getString("first_name"));
             book.setTitle(rs.getString("title"));
-            book.setPriceOld(rs.getString("priceOld"));
+            book.setPrice_old(rs.getString("price_old"));
             book.setPrice(rs.getString("price"));
             return book;
         });
@@ -33,12 +33,12 @@ public class BookService {
     }
 
     public List<Book> findBookByTitle(String x) {
-        List<Book> books = jdbcTemplate.query("SELECT * FROM books left join authors a on a.id = books.author where lower(books.title) like '%' || ? || '%'", (ResultSet rs, int rowNum) -> {
+        List<Book> books = jdbcTemplate.query("SELECT * FROM books left join authors a on a.id = books.author_id where lower(books.title) like '%' || ? || '%'", (ResultSet rs, int rowNum) -> {
             Book book = new Book();
             book.setId(rs.getInt("id"));
-            book.setAuthor(rs.getString("lastName") + " " + rs.getString("firstName"));
+            book.setAuthor(rs.getString("last_name") + " " + rs.getString("first_name"));
             book.setTitle(rs.getString("title"));
-            book.setPriceOld(rs.getString("priceOld"));
+            book.setPrice_old(rs.getString("price_old"));
             book.setPrice(rs.getString("price"));
             return book;
         }, x.toLowerCase());
@@ -46,12 +46,12 @@ public class BookService {
     }
 
     public List<Book> findBookByAuthor(String x) {
-        List<Book> books = jdbcTemplate.query("SELECT * FROM books left join authors a on a.id = books.author where lower(a.lastName) like '%' || ? || '%'", (ResultSet rs, int rowNum) -> {
+        List<Book> books = jdbcTemplate.query("SELECT * FROM books left join authors a on a.id = books.author_id where lower(a.last_name) like '%' || ? || '%'", (ResultSet rs, int rowNum) -> {
             Book book = new Book();
             book.setId(rs.getInt("id"));
-            book.setAuthor(rs.getString("lastName") + " " + rs.getString("firstName"));
+            book.setAuthor(rs.getString("last_name") + " " + rs.getString("first_name"));
             book.setTitle(rs.getString("title"));
-            book.setPriceOld(rs.getString("priceOld"));
+            book.setPrice_old(rs.getString("price_old"));
             book.setPrice(rs.getString("price"));
             return book;
         }, x.toLowerCase());

@@ -101,7 +101,7 @@
                     <li class="menu-item" style="margin-left: 50px">
                         <span th:text="#{topbar.language_selection}">Выбор языка</span>
                         <select id="locales" style="margin-left: 30px" >
-                            <option value=" " hidden selected disabled th:text="${#httpServletRequest.getParameter('lang')} == 'ru' ? 'Выбран: Русский' : 'Choosed: English'"></option>
+                            <option value=" " hidden selected disabled th:text="#{topbar.news} == 'Новинки' ? 'Выбран: Русский' : 'Choosed: English'"></option>
                             <option value="en">English</option>
                             <option value="ru">Русский</option>
                         </select>

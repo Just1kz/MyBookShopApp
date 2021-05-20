@@ -4,21 +4,29 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
 
 @Setter
 @Getter
 @ToString
+@Entity
+@Table(name = "books")
 public class Book implements Comparable<Book>{
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Transient
     private String author;
+
     private String title;
-    private String priceOld;
+    private String price_old;
     private String price;
-    private Date date;
-    private String tag;
+//    private Date date;
+//    private String tag;
 
     @Override
     public boolean equals(Object o) {
