@@ -24,17 +24,18 @@
                     </div>
                     <div class="Header-search">
                         <div class="search" >
-                            <form class="form form_search" th:method="post" th:action="@{/searching}" data-searchlimit="20" >
+                            <form  method="post" th:action="@{/searching}" data-searchlimit="20" >
 <!--                                th:object="${searchingObj}"-->
-                                <input class="search-input" id="query" name="query" type="text" th:placeholder="#{topbar.search_placeholder}"
+<!--                                class="form form_search"-->
+                                <input class="search-input" id="query2" name="query2" type="text" th:placeholder="#{topbar.search_placeholder}"
                                        placeholder="Search over 30 million book titles" value=""/>
                                 <button class="search-button" type="submit" name="search" id="search" th:text="#{topbar.search}">Поиск
                                 </button>
                             </form>
-                            <form method="post" th:action="@{/searching}">
-                                <input type="text" id="query2" name="query2">
-                                <button type="submit" value="asd"></button>
-                            </form>
+<!--                            <form method="post" th:action="@{/searching}">-->
+<!--                                <input type="text" id="query2" name="query2">-->
+<!--                                <button type="submit" value="asd"></button>-->
+<!--                            </form>-->
                         </div>
                     </div>
                 </div>
@@ -111,7 +112,9 @@
     </div>
 </header>
 </body>
-
+<style>
+    #search
+</style>
 <!--<script src="https://code.jquery.com/jquery-3.5.1.js"-->
 <!--        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="-->
 <!--        crossorigin="anonymous"></script>-->
