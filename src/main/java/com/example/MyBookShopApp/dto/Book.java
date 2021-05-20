@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.Date;
 import java.util.Objects;
 
 @Setter
@@ -16,6 +17,8 @@ public class Book implements Comparable<Book>{
     private String title;
     private String priceOld;
     private String price;
+    private Date date;
+    private String tag;
 
     @Override
     public boolean equals(Object o) {

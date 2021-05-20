@@ -31,4 +31,30 @@ public class BookService {
         });
         return new ArrayList<>(books);
     }
+
+    public List<Book> findBookByTitle(String x) {
+        List<Book> books = jdbcTemplate.query("SELECT * FROM books left join authors a on a.id = books.author where books.title like ?", (ResultSet rs, int rowNum) -> {
+            Book book = new Book();
+            book.setId(rs.getInt("id"));
+            book.setAuthor(rs.getString("lastName") + " " + rs.getString("firstName"));
+            book.setTitle(rs.getString("title"));
+            book.setPriceOld(rs.getString("priceOld"));
+            book.setPrice(rs.getString("price"));
+            return book;
+        }, x);
+        return new ArrayList<>(books);
+    }
+
+    public List<Book> findBookByAuthor(String x) {
+        List<Book> books = jdbcTemplate.query("SELECT * FROM books left join authors a on a.id = books.author where a.lastName like ?", (ResultSet rs, int rowNum) -> {
+            Book book = new Book();
+            book.setId(rs.getInt("id"));
+            book.setAuthor(rs.getString("lastName") + " " + rs.getString("firstName"));
+            book.setTitle(rs.getString("title"));
+            book.setPriceOld(rs.getString("priceOld"));
+            book.setPrice(rs.getString("price"));
+            return book;
+        }, x);
+        return new ArrayList<>(books);
+    }
 }

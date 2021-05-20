@@ -4,10 +4,10 @@
 <footer class="Footer" th:fragment="footFragment">
     <div class="wrap">
         <div class="row Footer-main">
-            <div class="row-block"><a class="logo logo_footer Footer-logo" href="/"><img class="logo-image"
+            <div class="row-block"><a class="logo logo_footer Footer-logo" th:href="@{/main}"><img class="logo-image"
                                                                                          src="/assets/img/logo_footer.png"
                                                                                          alt="logo_footer.png"/><span
-                    class="logo-text">BOOKSHOP</span></a>
+                    class="logo-text" th:text="#{topbar.LABEL}">BOOKSHOP</span></a>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincid unt ut
                     laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
                 </p>
@@ -71,36 +71,36 @@
             </div>
             <div class="row-block">
                 <ul class="menu menu_vt Footer-menu">
-                    <li class="menu-item"><a class="menu-link" href="/index.html">Главная</a>
+                    <li class="menu-item"><a class="menu-link" href="/index.html" th:href="@{/main}" th:text="#{topbar.main}">Главная</a>
                     </li>
-                    <li class="menu-item"><a class="menu-link" href="/genres/index.html">Жанры</a>
+                    <li class="menu-item"><a class="menu-link" href="/genres/index.html" th:href="@{/genres}" th:text="#{topbar.genres}">Жанры</a>
                     </li>
-                    <li class="menu-item"><a class="menu-link" href="/books/recent.html">Новинки</a>
+                    <li class="menu-item"><a class="menu-link" href="/books/recent.html" th:href="@{/news}" th:text="#{topbar.news}">Новинки</a>
                     </li>
-                    <li class="menu-item"><a class="menu-link" href="/books/popular.html">Популярное</a>
+                    <li class="menu-item"><a class="menu-link" href="/books/popular.html" th:href="@{/popular}" th:text="#{topbar.popular}">Популярное</a>
                     </li>
-                    <li class="menu-item"><a class="menu-link" href="/authors/index.html">Авторы</a>
+                    <li class="menu-item"><a class="menu-link" href="/authors/index.html" th:href="@{/authors}" th:text="#{topbar.authors}">Авторы</a>
                     </li>
                 </ul>
             </div>
             <div class="row-block">
                 <ul class="menu menu_vt Footer-menu">
-                    <li class="menu-item"><a class="menu-link" href="/signin.html">Войти</a>
+                    <li class="menu-item"><a class="menu-link" th:href="@{/authentication}" th:text="#{topbar.login}">Войти</a>
                     </li>
-                    <li class="menu-item"><a class="menu-link" href="/documents/index.html">Документы</a>
+                    <li class="menu-item"><a class="menu-link" th:href="@{/info/documents}" th:text="#{topbar.documents}">Документы</a>
                     </li>
-                    <li class="menu-item"><a class="menu-link" href="/about.html">О компании</a>
+                    <li class="menu-item"><a class="menu-link" th:href="@{/info/company}" th:text="#{topbar.about_company}">О компании</a>
                     </li>
-                    <li class="menu-item"><a class="menu-link" href="/faq.html">Помощь</a>
+                    <li class="menu-item"><a class="menu-link" th:href="@{/info/help}" th:text="#{topbar.help}">Помощь</a>
                     </li>
-                    <li class="menu-item"><a class="menu-link" href="/contacts.html">Контакты</a>
+                    <li class="menu-item"><a class="menu-link" th:href="@{/info/contacts}" th:text="#{topbar.contacts}">Контакты</a>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
     <div class="Footer-copy">
-        <div class="wrap">© 2016 Bookshop Pty Ltd. ALL RIGHTS RESERVED
+        <div class="wrap" th:text="#{topbar.license}">© 2016 Bookshop Pty Ltd. ALL RIGHTS RESERVED
         </div>
     </div>
 </footer>
