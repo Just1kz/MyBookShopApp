@@ -33,7 +33,7 @@ public class BookService {
     }
 
     public List<Book> findBookByTitle(String x) {
-        List<Book> books = jdbcTemplate.query("SELECT * FROM books left join authors a on a.id = books.author where books.title like '%' || ? || '%'", (ResultSet rs, int rowNum) -> {
+        List<Book> books = jdbcTemplate.query("SELECT * FROM books left join authors a on a.id = books.author where lower(books.title) like '%' || ? || '%'", (ResultSet rs, int rowNum) -> {
             Book book = new Book();
             book.setId(rs.getInt("id"));
             book.setAuthor(rs.getString("lastName") + " " + rs.getString("firstName"));
@@ -46,7 +46,7 @@ public class BookService {
     }
 
     public List<Book> findBookByAuthor(String x) {
-        List<Book> books = jdbcTemplate.query("SELECT * FROM books left join authors a on a.id = books.author where a.lastName like '%' || ? || '%'", (ResultSet rs, int rowNum) -> {
+        List<Book> books = jdbcTemplate.query("SELECT * FROM books left join authors a on a.id = books.author where lower(a.lastName) like '%' || ? || '%'", (ResultSet rs, int rowNum) -> {
             Book book = new Book();
             book.setId(rs.getInt("id"));
             book.setAuthor(rs.getString("lastName") + " " + rs.getString("firstName"));
