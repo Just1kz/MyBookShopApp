@@ -22,7 +22,7 @@ public class AuthorsPageController {
 
     @ModelAttribute("authorsMap")
     public Map<String, List<Author>> authorMap() {
-        return authorsService.getAuthorsMap();
+        return authorsService.getAuthorsMapJPA();
     }
 
     @GetMapping("/authors")

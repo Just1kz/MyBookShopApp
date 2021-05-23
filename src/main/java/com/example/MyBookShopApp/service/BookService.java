@@ -25,10 +25,10 @@ public class BookService {
     }
 
     public List<Book> findBookByTitle(String x) {
-        return bookRepository.findBookByTitle(x);
+        return bookRepository.findAllByTitleLowerCase(x);
     }
 
     public List<Book> findBookByAuthor(String x) {
-        return bookRepository.findBookByAuthor_LastName(x);
+        return bookRepository.findBookByAuthor_LastNameLowerCase(x);
     }
 }
