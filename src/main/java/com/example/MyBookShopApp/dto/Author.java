@@ -2,7 +2,6 @@ package com.example.MyBookShopApp.dto;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -11,7 +10,6 @@ import java.util.Objects;
 
 @Setter
 @Getter
-@ToString
 @Entity
 @Table(name = "authors")
 public class Author implements Comparable<Author>{
@@ -19,11 +17,12 @@ public class Author implements Comparable<Author>{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String first_name;
-    private String last_name;
+    @JoinColumn(name = "first_name")
+    private String firstName;
+    @JoinColumn(name = "last_name")
+    private String lastName;
 
-    @OneToMany
-    @JoinColumn(name = "author_id", referencedColumnName = "id")
+    @OneToMany(mappedBy = "author")
     private List<Book> bookList = new ArrayList<>();
 
     @Override
@@ -35,18 +34,27 @@ public class Author implements Comparable<Author>{
             return false;
         }
         Author author = (Author) o;
-        return Objects.equals(first_name, author.first_name)
-                && Objects.equals(last_name, author.last_name);
+        return Objects.equals(firstName, author.firstName)
+                && Objects.equals(lastName, author.lastName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(first_name, last_name);
+        return Objects.hash(firstName, lastName);
     }
 
     @Override
     public int compareTo(Author o) {
-        int rsl = first_name.compareTo(o.first_name);
-        return rsl == 0 ? last_name.compareTo(o.last_name) : rsl;
+        int rsl = firstName.compareTo(o.firstName);
+        return rsl == 0 ? lastName.compareTo(o.lastName) : rsl;
+    }
+
+    @Override
+    public String toString() {
+        return "Author{" +
+                "id=" + id +
+                ", first_name='" + firstName + '\'' +
+                ", last_name='" + lastName + '\'' +
+                '}';
     }
 }

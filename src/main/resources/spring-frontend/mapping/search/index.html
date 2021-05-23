@@ -61,7 +61,7 @@
                     <div class="Card-content">
                       <strong class="Card-title"><a href="/books/slug.html" th:text="${#strings.toUpperCase(book.title)}"></a>
                       </strong>
-                      <div class="Card-description" th:text="${book.author.toUpperCase()}">
+                      <div class="Card-description" th:text="${book.author.toString().toUpperCase()}">
                       </div>
                       <div class="Card-cost"><span class="Card-priceOld" th:text="${book.price_old}"></span><span class="Card-price" th:text="${book.price}"></span>
                       </div>

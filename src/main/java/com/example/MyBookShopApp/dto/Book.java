@@ -10,7 +10,6 @@ import java.util.Objects;
 
 @Setter
 @Getter
-@ToString
 @Entity
 @Table(name = "books")
 public class Book implements Comparable<Book>{
@@ -19,8 +18,9 @@ public class Book implements Comparable<Book>{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Transient
-    private String author;
+    @ManyToOne
+    @JoinColumn(name = "author_id", referencedColumnName = "id")
+    private Author author;
 
     private String title;
     private String price_old;
@@ -50,5 +50,16 @@ public class Book implements Comparable<Book>{
     @Override
     public int compareTo(Book o) {
         return title.compareTo(o.title);
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", author=" + author +
+                ", title='" + title + '\'' +
+                ", price_old='" + price_old + '\'' +
+                ", price='" + price + '\'' +
+                '}';
     }
 }
