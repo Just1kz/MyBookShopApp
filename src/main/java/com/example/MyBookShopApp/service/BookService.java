@@ -26,6 +26,6 @@ public class BookService {
     }
 
     public List<Book> findBookByAuthor(String x) {
-        return bookRepository.findBookByAuthor_LastNameLowerCase(x);
+        return bookRepository.findBookByAuthorLastNameLowerCase(x);
     }
 }

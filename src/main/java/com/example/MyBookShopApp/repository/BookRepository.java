@@ -13,14 +13,14 @@ public interface BookRepository extends JpaRepository<Book, Integer> {
 
     List<Book> findBookByTitle(String title);
 
-    List<Book> findBookByAuthor_LastName(String name);
+    List<Book> findBookByAuthorLastName(String name);
 
-    List<Book> findBookByAuthor_FirstName(String name);
+    List<Book> findBookByAuthorFirstName(String name);
 
     @Query(value = "SELECT * FROM books left join authors a on a.id = books.author_id "
             + "where lower(a.last_name) like '%' || :lastName || '%'",
             nativeQuery = true)
-    List<Book> findBookByAuthor_LastNameLowerCase(@Param("lastName") String lastName);
+    List<Book> findBookByAuthorLastNameLowerCase(@Param("lastName") String lastName);
 
     @Query(value = "SELECT * FROM books left join authors a on a.id = books.author_id "
             + "where lower(books.title) like '%' || :title || '%'",

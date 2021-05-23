@@ -39,9 +39,9 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 //        deleteTestEntityDyId(4L);
 
         Logger.getLogger(CommandLineRunnerImpl.class.getSimpleName()).info(bookRepository.findBookByTitle("Biodex").toString());
-        Logger.getLogger(CommandLineRunnerImpl.class.getSimpleName()).info(bookRepository.findBookByAuthor_LastName("Peaden").toString());
-        Logger.getLogger(CommandLineRunnerImpl.class.getSimpleName()).info(bookRepository.findBookByAuthor_FirstName("Feliza").toString());
-        Logger.getLogger(CommandLineRunnerImpl.class.getSimpleName()).info(bookRepository.findBookByAuthor_LastNameLowerCase("bone").toString());
+        Logger.getLogger(CommandLineRunnerImpl.class.getSimpleName()).info(bookRepository.findBookByAuthorLastName("Peaden").toString());
+        Logger.getLogger(CommandLineRunnerImpl.class.getSimpleName()).info(bookRepository.findBookByAuthorFirstName("Feliza").toString());
+        Logger.getLogger(CommandLineRunnerImpl.class.getSimpleName()).info(bookRepository.findBookByAuthorLastNameLowerCase("bone").toString());
         Logger.getLogger(CommandLineRunnerImpl.class.getSimpleName()).info("findByTitle: " + bookRepository.findAllByTitleContains("dal").toString());
         Logger.getLogger(CommandLineRunnerImpl.class.getSimpleName()).info("findByTitleLower: " + bookRepository.findAllByTitleLowerCase("bio").toString());
         Logger.getLogger(CommandLineRunnerImpl.class.getSimpleName()).info(bookRepository.customAllBooks().toString());
