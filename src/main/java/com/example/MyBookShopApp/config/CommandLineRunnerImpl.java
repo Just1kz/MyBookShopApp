@@ -26,17 +26,17 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        for (int i = 0;  i < 5; i++) {
-            createTestEntity(new TestEntity());
-        }
+//        for (int i = 0;  i < 5; i++) {
+//            createTestEntity(new TestEntity());
+//        }
 
-        TestEntity readTestEntity =  readTestEntityById(3L); //testEntityDao.findOne(3L);
-        Logger.getLogger(CommandLineRunnerImpl.class.getSimpleName()).info("read" + readTestEntity.toString());
-
-        TestEntity updateTestEntity = updateTestEntityById(5L);
-        Logger.getLogger(CommandLineRunnerImpl.class.getSimpleName()).info("update" + updateTestEntity.toString());
-
-        deleteTestEntityDyId(4L);
+//        TestEntity readTestEntity =  readTestEntityById(3L); //testEntityDao.findOne(3L);
+//        Logger.getLogger(CommandLineRunnerImpl.class.getSimpleName()).info("read" + readTestEntity.toString());
+//
+//        TestEntity updateTestEntity = updateTestEntityById(5L);
+//        Logger.getLogger(CommandLineRunnerImpl.class.getSimpleName()).info("update" + updateTestEntity.toString());
+//
+//        deleteTestEntityDyId(4L);
 
         Logger.getLogger(CommandLineRunnerImpl.class.getSimpleName()).info(bookRepository.findBookByTitle("Biodex").toString());
         Logger.getLogger(CommandLineRunnerImpl.class.getSimpleName()).info(bookRepository.findBookByAuthor_LastName("Peaden").toString());

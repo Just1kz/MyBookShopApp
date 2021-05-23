@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet author="Just1kz (generated)" id="1621794888873-1">
+        <createSequence sequenceName="authors_id_seq"/>
+    </changeSet>
+    <changeSet author="Just1kz (generated)" id="1621794888873-2">
+        <createSequence sequenceName="books_id_seq"/>
+    </changeSet>
+    <changeSet author="Just1kz (generated)" id="1621794888873-3">
+        <createSequence sequenceName="feedback_id_seq"/>
+    </changeSet>
+    <changeSet author="Just1kz (generated)" id="1621794888873-4">
+        <createSequence sequenceName="genres_id_seq"/>
+    </changeSet>
+    <changeSet author="Just1kz (generated)" id="1621794888873-5">
+        <createSequence sequenceName="photo_id_seq"/>
+    </changeSet>
+    <changeSet author="Just1kz (generated)" id="1621794888873-6">
+        <createSequence sequenceName="rating_books_id_seq"/>
+    </changeSet>
+    <changeSet author="Just1kz (generated)" id="1621794888873-7">
+        <createSequence sequenceName="reviews_id_seq"/>
+    </changeSet>
+    <changeSet author="Just1kz (generated)" id="1621794888873-8">
+        <createSequence sequenceName="test_entities_id_seq"/>
+    </changeSet>
+    <changeSet author="Just1kz (generated)" id="1621794888873-9">
+        <createSequence sequenceName="users_contact_id_seq"/>
+    </changeSet>
+    <changeSet author="Just1kz (generated)" id="1621794888873-10">
+        <createSequence sequenceName="users_id_seq"/>
+    </changeSet>
+    <changeSet author="Just1kz (generated)" id="1621794888873-11">
+        <createTable tableName="authors">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="authors_pkey"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="first_name" type="VARCHAR(255)"/>
+            <column name="last_name" type="VARCHAR(255)"/>
+            <column name="photo_id" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Just1kz (generated)" id="1621794888873-12">
+        <createTable tableName="books">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="books_pkey"/>
+            </column>
+            <column name="currency_code" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="discount" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="price" type="VARCHAR(255)"/>
+            <column name="price_old" type="VARCHAR(255)"/>
+            <column name="pub_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="slug" type="VARCHAR(255)"/>
+            <column name="title" type="VARCHAR(255)"/>
+            <column name="author_id" type="INT"/>
+            <column name="photo_id" type="INT"/>
+            <column name="rating_id" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Just1kz (generated)" id="1621794888873-13">
+        <createTable tableName="feedback">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="feedback_pkey"/>
+            </column>
+            <column name="date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="rating" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="reviews_id" type="INT"/>
+            <column name="users_id" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Just1kz (generated)" id="1621794888873-14">
+        <createTable tableName="genres">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="genres_pkey"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="slag" type="VARCHAR(255)"/>
+            <column name="genres_id" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Just1kz (generated)" id="1621794888873-15">
+        <createTable tableName="photo">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="photo_pkey"/>
+            </column>
+            <column name="title" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Just1kz (generated)" id="1621794888873-16">
+        <createTable tableName="rating_books">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="rating_books_pkey"/>
+            </column>
+            <column name="cart_count" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="paid_count" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="postponed_count" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="result" type="FLOAT8">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Just1kz (generated)" id="1621794888873-17">
+        <createTable tableName="reviews">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="reviews_pkey"/>
+            </column>
+            <column name="date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="text" type="VARCHAR(255)"/>
+            <column name="books_id" type="INT"/>
+            <column name="users_id" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Just1kz (generated)" id="1621794888873-18">
+        <createTable tableName="test_entities">
+            <column autoIncrement="true" name="id" type="BIGSERIAL">
+                <constraints primaryKey="true" primaryKeyName="test_entities_pkey"/>
+            </column>
+            <column name="date" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Just1kz (generated)" id="1621794888873-19">
+        <createTable tableName="users">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="users_pkey"/>
+            </column>
+            <column name="balance" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="hash" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="reg_time" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Just1kz (generated)" id="1621794888873-20">
+        <createTable tableName="users_contact">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="users_contact_pkey"/>
+            </column>
+            <column name="approved" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code" type="VARCHAR(255)"/>
+            <column name="code_time" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="code_trials" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="contact" type="VARCHAR(255)"/>
+            <column name="users_id" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Just1kz (generated)" id="1621794888873-21">
+        <addForeignKeyConstraint baseColumnNames="books_id" baseTableName="reviews" constraintName="fk33v26w5i07v9iwdli3wkyccjw" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="books"/>
+    </changeSet>
+    <changeSet author="Just1kz (generated)" id="1621794888873-22">
+        <addForeignKeyConstraint baseColumnNames="users_id" baseTableName="reviews" constraintName="fk4v58b2u3xxgms89ps5omhjpy4" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="users"/>
+    </changeSet>
+    <changeSet author="Just1kz (generated)" id="1621794888873-23">
+        <addForeignKeyConstraint baseColumnNames="users_id" baseTableName="feedback" constraintName="fk5kvmyu6eito8t2p9mk15xhmak" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="users"/>
+    </changeSet>
+    <changeSet author="Just1kz (generated)" id="1621794888873-24">
+        <addForeignKeyConstraint baseColumnNames="author_id" baseTableName="books" constraintName="fkfjixh2vym2cvfj3ufxj91jem7" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="authors"/>
+    </changeSet>
+    <changeSet author="Just1kz (generated)" id="1621794888873-25">
+        <addForeignKeyConstraint baseColumnNames="rating_id" baseTableName="books" constraintName="fkhoy4ka30kqb9h6lqawhjei9ar" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="rating_books"/>
+    </changeSet>
+    <changeSet author="Just1kz (generated)" id="1621794888873-26">
+        <addForeignKeyConstraint baseColumnNames="photo_id" baseTableName="books" constraintName="fkhyseyt3skiqfj84onkuubq9fy" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="photo"/>
+    </changeSet>
+    <changeSet author="Just1kz (generated)" id="1621794888873-27">
+        <addForeignKeyConstraint baseColumnNames="reviews_id" baseTableName="feedback" constraintName="fkq3851blv65ffjcpje25cq3mmv" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="reviews"/>
+    </changeSet>
+    <changeSet author="Just1kz (generated)" id="1621794888873-28">
+        <addForeignKeyConstraint baseColumnNames="users_id" baseTableName="users_contact" constraintName="fkt2tvahyyan2tu63ytw5r9tqfv" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="users"/>
+    </changeSet>
+    <changeSet author="Just1kz (generated)" id="1621794888873-29">
+        <addForeignKeyConstraint baseColumnNames="genres_id" baseTableName="genres" constraintName="fktaen9gdww18i5smlyqk4bql8r" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="genres"/>
+    </changeSet>
+    <changeSet author="Just1kz (generated)" id="1621794888873-30">
+        <addForeignKeyConstraint baseColumnNames="photo_id" baseTableName="authors" constraintName="fktgnvt4guxdbmadr1j4olhjffe" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="photo"/>
+    </changeSet>
+</databaseChangeLog>
