@@ -1,0 +1,10 @@
+insert into users (id, hash, reg_time, balance, name) values (1, 58, '2021-01-04 03:01:46', 405, 'cwithinshaw0');
+insert into users (id, hash, reg_time, balance, name) values (2, 841, '2020-02-23 00:21:53', 419, 'mmcwhinnie1');
+insert into users (id, hash, reg_time, balance, name) values (3, 569, '2019-12-12 23:32:48', 928, 'ilappine2');
+insert into users (id, hash, reg_time, balance, name) values (4, 569, '2021-05-17 19:15:47', 535, 'tnare3');
+insert into users (id, hash, reg_time, balance, name) values (5, 227, '2020-03-02 01:28:49', 781, 'sfrend4');
+insert into users (id, hash, reg_time, balance, name) values (6, 421, '2021-01-28 22:18:40', 835, 'brosander5');
+insert into users (id, hash, reg_time, balance, name) values (7, 682, '2020-10-18 20:26:34', 617, 'achallice6');
+insert into users (id, hash, reg_time, balance, name) values (8, 151, '2020-03-21 03:07:46', 554, 'psimeoni7');
+insert into users (id, hash, reg_time, balance, name) values (9, 355, '2020-12-07 17:52:12', 818, 'nburnie8');
+insert into users (id, hash, reg_time, balance, name) values (10, 742, '2020-02-15 18:38:14', 343, 'vgarret9');

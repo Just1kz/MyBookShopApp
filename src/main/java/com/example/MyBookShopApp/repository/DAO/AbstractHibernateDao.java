@@ -1,4 +1,4 @@
-package com.example.MyBookShopApp.repository;
+package com.example.MyBookShopApp.repository.DAO;
 
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;

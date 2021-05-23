@@ -1,5 +1,6 @@
 package com.example.MyBookShopApp.dto;
 
+import com.example.MyBookShopApp.dto.books.Book;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,13 +18,22 @@ public class Author implements Comparable<Author>{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     @JoinColumn(name = "first_name")
     private String firstName;
+
     @JoinColumn(name = "last_name")
     private String lastName;
 
+    @JoinColumn(name = "description")
+    private String description;
+
     @OneToMany(mappedBy = "author")
     private List<Book> bookList = new ArrayList<>();
+
+    @ManyToOne
+    @JoinColumn(name = "photo_id", referencedColumnName = "id")
+    private Photo photo;
 
     @Override
     public boolean equals(Object o) {

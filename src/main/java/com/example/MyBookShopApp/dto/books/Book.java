@@ -1,8 +1,9 @@
-package com.example.MyBookShopApp.dto;
+package com.example.MyBookShopApp.dto.books;
 
+import com.example.MyBookShopApp.dto.Author;
+import com.example.MyBookShopApp.dto.Photo;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -21,12 +22,39 @@ public class Book implements Comparable<Book>{
     @ManyToOne
     @JoinColumn(name = "author_id", referencedColumnName = "id")
     private Author author;
+    //private List<Author> authors = new ArrayList<>();
 
+    @ManyToOne
+    @JoinColumn(name = "rating_id", referencedColumnName = "id")
+    private Rating rating;
+
+    @JoinColumn(name = "title")
     private String title;
+
+    @JoinColumn(name = "price_old")
     private String price_old;
+
+    @JoinColumn(name = "discount")
+    private int discount;
+
+    @JoinColumn(name = "price")
     private String price;
-//    private Date date;
-//    private String tag;
+
+    @JoinColumn(name = "currency_code")
+    private String currencyCode;
+
+    @JoinColumn(name = "pub_date")
+    private Date pub_date;
+
+    @JoinColumn(name = "slug")
+    private String slug;
+
+    @JoinColumn(name = "description")
+    private String description;
+
+    @ManyToOne
+    @JoinColumn(name = "photo_id", referencedColumnName = "id")
+    private Photo photo;
 
     @Override
     public boolean equals(Object o) {
@@ -37,14 +65,13 @@ public class Book implements Comparable<Book>{
             return false;
         }
         Book book = (Book) o;
-        return Objects.equals(author, book.author)
-                && Objects.equals(title, book.title)
+        return Objects.equals(title, book.title)
                 && Objects.equals(price, book.price);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(author, title, price);
+        return Objects.hash(title, price);
     }
 
     @Override
@@ -52,14 +79,4 @@ public class Book implements Comparable<Book>{
         return title.compareTo(o.title);
     }
 
-    @Override
-    public String toString() {
-        return "Book{" +
-                "id=" + id +
-                ", author=" + author +
-                ", title='" + title + '\'' +
-                ", price_old='" + price_old + '\'' +
-                ", price='" + price + '\'' +
-                '}';
-    }
 }

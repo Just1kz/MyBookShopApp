@@ -1,0 +1,10 @@
+insert into photo (id, title) values (1, 'It');
+insert into photo (id, title) values (2, 'Bamity');
+insert into photo (id, title) values (3, 'Fintone');
+insert into photo (id, title) values (4, 'Transcof');
+insert into photo (id, title) values (5, 'Greenlam');
+insert into photo (id, title) values (6, 'Vagram');
+insert into photo (id, title) values (7, 'Tampflex');
+insert into photo (id, title) values (8, 'Tampflex');
+insert into photo (id, title) values (9, 'Aerified');
+insert into photo (id, title) values (10, 'Voltsillam');

@@ -1,19 +1,13 @@
 package com.example.MyBookShopApp.config;
 
-import com.example.MyBookShopApp.dto.TestEntity;
-import com.example.MyBookShopApp.repository.AuthorRepository;
+import com.example.MyBookShopApp.repository.DAO.TestEntity;
 import com.example.MyBookShopApp.repository.BookRepository;
-import com.example.MyBookShopApp.repository.TestEntityCrudRepository;
-import com.example.MyBookShopApp.repository.TestEntityDao;
+import com.example.MyBookShopApp.repository.DAO.TestEntityCrudRepository;
 import com.example.MyBookShopApp.service.AuthorsService;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 
-import javax.persistence.EntityManagerFactory;
 import java.util.logging.Logger;
 
 @Configuration

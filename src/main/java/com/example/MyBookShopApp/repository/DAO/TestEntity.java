@@ -1,4 +1,4 @@
-package com.example.MyBookShopApp.dto;
+package com.example.MyBookShopApp.repository.DAO;
 
 import lombok.Getter;
 import lombok.Setter;

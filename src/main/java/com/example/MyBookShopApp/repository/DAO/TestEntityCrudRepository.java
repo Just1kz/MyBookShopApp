@@ -1,6 +1,5 @@
-package com.example.MyBookShopApp.repository;
+package com.example.MyBookShopApp.repository.DAO;
 
-import com.example.MyBookShopApp.dto.TestEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

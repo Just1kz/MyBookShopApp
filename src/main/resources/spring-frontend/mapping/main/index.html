@@ -63,7 +63,7 @@
                       </strong>
                       <div class="Card-description" th:text="${book.author.getFirstName.toUpperCase()} + ' ' + ${book.author.getLastName.toUpperCase()}">
                       </div>
-                      <div class="Card-cost"><span class="Card-priceOld" th:text="${book.price_old}"></span><span class="Card-price" th:text="${book.price}"></span>
+                      <div class="Card-cost"><span class="Card-priceOld" th:text="${book.price_old} + ' ' + ${book.currencyCode}"></span><span class="Card-price" th:text="${book.price} + ' ' + ${book.currencyCode}"></span>
                       </div>
                     </div>
                   </div>
